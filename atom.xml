@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>程序猿小风扇</title>
+  
+  
+  <link href="https://smallfan.top/atom.xml" rel="self"/>
+  
+  <link href="https://smallfan.top/"/>
+  <updated>2024-02-10T14:58:12.000Z</updated>
+  <id>https://smallfan.top/</id>
+  
+  <author>
+    <name>Smallfan</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git 基本构成及常见问题</title>
+    <link href="https://smallfan.top/2023/gitCommon/"/>
+    <id>https://smallfan.top/2023/gitCommon/</id>
+    <published>2023-04-26T14:31:55.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;本文适合人群：具备 Git 基本使用经验的软件开发工程师、测试工程师、运维工程师等&lt;/li&gt;
+&lt;li&gt;本文学习目的：理解 Git</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="开发工具" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="Git" scheme="https://smallfan.top/tags/Git/"/>
+    
+    <category term="开发工具" scheme="https://smallfan.top/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如果根DNS服务器被炸了，万维网是不是将马上瘫痪？</title>
+    <link href="https://smallfan.top/2023/dns/"/>
+    <id>https://smallfan.top/2023/dns/</id>
+    <published>2023-02-15T16:49:03.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;前言&lt;/p&gt;
+&lt;p&gt;最近刚追完杨导的电视剧版《三体》，对人类所为对世界的影响有了一个叹为观止的新认知，虽然是一部科幻剧，对人性的揭示却是非常刻骨。很久之前曾经在知乎刷到过一个问答，标题大概是《假如有人把支付宝所有存储服务器炸了，大众在支付宝里的钱是</summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="网络原理" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="网络原理" scheme="https://smallfan.top/tags/%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/"/>
+    
+    <category term="DNS" scheme="https://smallfan.top/tags/DNS/"/>
+    
+    <category term="域名解析" scheme="https://smallfan.top/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深入探究ECDHE算法</title>
+    <link href="https://smallfan.top/2023/ecdhe/"/>
+    <id>https://smallfan.top/2023/ecdhe/</id>
+    <published>2023-02-14T16:08:55.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一、加密与数论基础&lt;/h1&gt;
+&lt;p&gt;在正式谈及 ECDHE 之前，需要先谈谈与之关系紧密的 RSA 算法。ECDHE 是建立在优化 RSA 部分特性的前提下诞生的。&lt;/p&gt;
+&lt;h2 id=&quot;1-1-非对称加密&quot;&gt;1.1 非对称加密&lt;/h2&gt;
+&lt;p&gt;RSA算法 常应用于非对称加密，非对称加密生成一对密钥，常见的使用场景为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;公钥加密，私钥解密&lt;/strong&gt;。这个目的是为了&lt;strong&gt;保证数据传输安全性&lt;/strong&gt;，因为被公钥加密的内容，其他人是无法解密的，只有持有私钥的人，才能解密出实际的内容；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;私钥加密，公钥解密&lt;/strong&gt;。这个目的是为了&lt;strong&gt;保证数据真实性&lt;/strong&gt;，因为私钥是不可泄露的，如果公钥能正常解密出私钥加密的内容，就能证明这个消息是来源于持有私钥身份的人发送的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;想要理解 RSA算法，首先需要从几个初等数论概念着手。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="网络原理" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="网络原理" scheme="https://smallfan.top/tags/%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86/"/>
+    
+    <category term="HTTPS" scheme="https://smallfan.top/tags/HTTPS/"/>
+    
+    <category term="网络安全" scheme="https://smallfan.top/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="密码学" scheme="https://smallfan.top/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>删除链表的倒数第 N 个结点（LeetCode No.19）</title>
+    <link href="https://smallfan.top/2022/removeKthFromEnd/"/>
+    <id>https://smallfan.top/2022/removeKthFromEnd/</id>
+    <published>2022-11-04T20:25:11.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://blogpic.smallfan.top/alg/removeKthFromEnd.png&quot; alt&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="数据结构算法" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://smallfan.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构" scheme="https://smallfan.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表" scheme="https://smallfan.top/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>链表的中间结点（LeetCode No.876）</title>
+    <link href="https://smallfan.top/2022/getMiddleNode/"/>
+    <id>https://smallfan.top/2022/getMiddleNode/</id>
+    <published>2022-11-03T21:40:11.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://blogpic.smallfan.top/alg/getMiddleNode.png&quot; alt&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="数据结构算法" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://smallfan.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构" scheme="https://smallfan.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表" scheme="https://smallfan.top/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>链表中倒数第k个节点（剑指offer No.22）</title>
+    <link href="https://smallfan.top/2022/getKthFromEnd/"/>
+    <id>https://smallfan.top/2022/getKthFromEnd/</id>
+    <published>2022-11-03T21:10:11.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://blogpic.smallfan.top/alg/getKthFromEnd.png&quot; alt&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="数据结构算法" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://smallfan.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构" scheme="https://smallfan.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表" scheme="https://smallfan.top/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分隔链表（LeetCode No.86）</title>
+    <link href="https://smallfan.top/2022/partitionLinkList/"/>
+    <id>https://smallfan.top/2022/partitionLinkList/</id>
+    <published>2022-11-03T20:40:11.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://blogpic.smallfan.top/alg/partitionLinkList.png&quot; alt&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="数据结构算法" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://smallfan.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构" scheme="https://smallfan.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表" scheme="https://smallfan.top/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>合并两个有序链表（LeetCode No.21）</title>
+    <link href="https://smallfan.top/2022/mergeLinkList/"/>
+    <id>https://smallfan.top/2022/mergeLinkList/</id>
+    <published>2022-11-03T19:50:11.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://blogpic.smallfan.top/alg/mergeLinkList.png&quot; alt&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="数据结构算法" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://smallfan.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="数据结构" scheme="https://smallfan.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="链表" scheme="https://smallfan.top/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初探Flutter（三） 路由管理</title>
+    <link href="https://smallfan.top/2022/flutter_route/"/>
+    <id>https://smallfan.top/2022/flutter_route/</id>
+    <published>2022-09-07T22:00:11.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一、基本概念&lt;/h1&gt;
+&lt;p&gt;所谓路由管理，就是管理页面之间如何跳转，通常也可被称为导航管理。Flutter 中的路由管理和原生开发类似，无论是 Android 还是 iOS，导航管理都会维护一个路由栈，路由入栈（push）操作对应打开一个新页面，路由出栈（pop）操作对应页面关闭操作，而路由管理主要是指如何来管理路由栈。&lt;/p&gt;
+&lt;h1&gt;二、MaterialPageRoute&lt;/h1&gt;
+&lt;h2 id=&quot;2-1-基本定义&quot;&gt;2.1 基本定义&lt;/h2&gt;
+&lt;p&gt;MaterialPageRoute 是 Material组件库提供的组件，它可以针对不同平台，实现与平台页面切换动画风格一致的路由切换动画：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于 Android，当打开新页面时，新的页面会从屏幕底部滑动到屏幕顶部；当关闭页面时，当前页面会从屏幕顶部滑动到屏幕底部后消失，同时上一个页面会显示到屏幕上。&lt;/li&gt;
+&lt;li&gt;对于 iOS，当打开页面时，新的页面会从屏幕右侧边缘一直滑动到屏幕左边，直到新页面全部显示到屏幕上，而上一个页面则会从当前屏幕滑动到屏幕左侧而消失；当关闭页面时，正好相反，当前页面会从屏幕右侧滑出，同时上一个页面会从屏幕左侧滑入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight dart&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;MaterialPageRoute(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   WidgetBuilder builder,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   RouteSettings settings,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;bool&lt;/span&gt; maintainState = &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;bool&lt;/span&gt; fullscreenDialog = &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;builder&lt;/code&gt; 是一个WidgetBuilder类型的回调函数，它的作用是构建路由页面的具体内容，返回值是一个widget。我们通常要实现此回调，返回新路由的实例。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;settings&lt;/code&gt; 包含路由的配置信息，如路由名称、是否初始路由（首页）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;maintainState&lt;/code&gt; 默认情况下，当入栈一个新路由时，原来的路由仍然会被保存在内存中，如果想在路由没用的时候释放其所占用的所有资源，可以设置&lt;code&gt;maintainState&lt;/code&gt;为 &lt;code&gt;false&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fullscreenDialog&lt;/code&gt; 表示新的路由页面是否是一个全屏的模态对话框，在 iOS 中，如果fullscreenDialog为 &lt;code&gt;true&lt;/code&gt;，新页面将会从屏幕底部滑入（而不是水平方向）。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="Flutter" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/Flutter/"/>
+    
+    
+    <category term="移动开发" scheme="https://smallfan.top/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Flutter" scheme="https://smallfan.top/tags/Flutter/"/>
+    
+    <category term="Hybrid" scheme="https://smallfan.top/tags/Hybrid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初探Flutter（二） 状态管理</title>
+    <link href="https://smallfan.top/2022/flutter_state/"/>
+    <id>https://smallfan.top/2022/flutter_state/</id>
+    <published>2022-09-06T22:52:55.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一、三种常见的状态管理&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Widget 管理自己的状态。&lt;/li&gt;
+&lt;li&gt;Widget 管理子 Widget 状态。&lt;/li&gt;
+&lt;li&gt;混合管理（父 Widget 和子 Widget 都管理状态）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1-1-widget-管理自己的状态&quot;&gt;1.1 Widget 管理自己的状态&lt;/h2&gt;
+&lt;h3 id=&quot;1-1-1-适用场景&quot;&gt;1.1.1 适用场景&lt;/h3&gt;
+&lt;p&gt;如果状态是有关界面外观效果的，例如颜色、动画，那么状态最好由 Widget 本身来管理。&lt;/p&gt;
+&lt;h3 id=&quot;1-1-2-例子&quot;&gt;1.1.2 例子&lt;/h3&gt;
+&lt;figure class=&quot;highlight dart&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;TapboxA&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;StatefulWidget&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  TapboxA(&amp;#123;Key? key&amp;#125;) : &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;(key: key);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;meta&quot;&gt;@override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  _TapboxAState createState() =&amp;gt; _TapboxAState();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;_TapboxAState&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;State&lt;/span&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;TapboxA&lt;/span&gt;&amp;gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;built_in&quot;&gt;bool&lt;/span&gt; _active = &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; _handleTap() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setState(() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      _active = !_active;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  Widget build(BuildContext context) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; GestureDetector(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      onTap: _handleTap,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      child: Container(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        child: Center(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          child: Text(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            _active ? &lt;span class=&quot;string&quot;&gt;&amp;#x27;Active&amp;#x27;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&amp;#x27;Inactive&amp;#x27;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            style: TextStyle(fontSize: &lt;span class=&quot;number&quot;&gt;32.0&lt;/span&gt;, color: Colors.white),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        width: &lt;span class=&quot;number&quot;&gt;200.0&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        height: &lt;span class=&quot;number&quot;&gt;200.0&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        decoration: BoxDecoration(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          color: _active ? Colors.lightGreen[&lt;span class=&quot;number&quot;&gt;700&lt;/span&gt;] : Colors.grey[&lt;span class=&quot;number&quot;&gt;600&lt;/span&gt;],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="Flutter" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/Flutter/"/>
+    
+    
+    <category term="移动开发" scheme="https://smallfan.top/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Flutter" scheme="https://smallfan.top/tags/Flutter/"/>
+    
+    <category term="Hybrid" scheme="https://smallfan.top/tags/Hybrid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初探Flutter（一） Widget</title>
+    <link href="https://smallfan.top/2022/flutter_widget/"/>
+    <id>https://smallfan.top/2022/flutter_widget/</id>
+    <published>2022-09-04T18:51:55.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一、Widget&lt;/h1&gt;
+&lt;h2 id=&quot;1-1-canupdate方法&quot;&gt;1.1 canUpdate方法&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;canUpdate(...)&lt;/code&gt;是一个静态方法，它主要用于在 widget 树重新&lt;code&gt;build&lt;/code&gt;时复用旧的 widget。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根本作用：是否用新的 widget 对象去更新旧UI树上所对应的&lt;code&gt;Element&lt;/code&gt;对象的配置。&lt;/li&gt;
+&lt;li&gt;判断规则：只要&lt;code&gt;newWidget&lt;/code&gt;与&lt;code&gt;oldWidget&lt;/code&gt;的&lt;code&gt;runtimeType&lt;/code&gt;和&lt;code&gt;key&lt;/code&gt;同时相等时就会用&lt;code&gt;new widget&lt;/code&gt;去更新&lt;code&gt;Element&lt;/code&gt;对象的配置，否则就会创建新的&lt;code&gt;Element&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1-2-flutter中的四棵树&quot;&gt;1.2 Flutter中的四棵树&lt;/h2&gt;
+&lt;h3 id=&quot;1-2-1-基本联系与职责&quot;&gt;1.2.1 基本联系与职责&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;根据 Widget 树生成一个 Element 树，Element 树中的节点都继承自 &lt;code&gt;Element&lt;/code&gt; 类。&lt;/li&gt;
+&lt;li&gt;根据 Element 树生成 Render 树（渲染树），渲染树中的节点都继承自 &lt;code&gt;RenderObject&lt;/code&gt; 类。&lt;/li&gt;
+&lt;li&gt;根据渲染树生成 Layer 树，然后上屏显示，Layer 树中的节点都继承自 &lt;code&gt;Layer&lt;/code&gt; 类。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;布局和渲染逻辑在 &lt;code&gt;Render&lt;/code&gt; 树中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Element&lt;/code&gt; 是 Widget 和 RenderObject 的粘合剂。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;1-2-2-例子&quot;&gt;1.2.2 例子&lt;/h3&gt;
+&lt;figure class=&quot;highlight dart&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Container( &lt;span class=&quot;comment&quot;&gt;// 一个容器 widget&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  color: Colors.blue, &lt;span class=&quot;comment&quot;&gt;// 设置容器背景色&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  child: Row( &lt;span class=&quot;comment&quot;&gt;// 可以将子widget沿水平方向排列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    children: [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      Image.network(&lt;span class=&quot;string&quot;&gt;&amp;#x27;https://www.example.com/1.png&amp;#x27;&lt;/span&gt;), &lt;span class=&quot;comment&quot;&gt;// 显示图片的 widget&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; Text(&lt;span class=&quot;string&quot;&gt;&amp;#x27;A&amp;#x27;&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="Flutter" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/Flutter/"/>
+    
+    
+    <category term="移动开发" scheme="https://smallfan.top/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Flutter" scheme="https://smallfan.top/tags/Flutter/"/>
+    
+    <category term="Hybrid" scheme="https://smallfan.top/tags/Hybrid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>认识期权（一）期权的基本概念</title>
+    <link href="https://smallfan.top/2022/options1/"/>
+    <id>https://smallfan.top/2022/options1/</id>
+    <published>2022-07-28T23:33:55.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一、什么是期权&lt;/h1&gt;
+&lt;p&gt;期权，是指一种&lt;strong&gt;合约&lt;/strong&gt;，该合约赋予&lt;strong&gt;持有人在某一特定日期或该日之前的任何时间以固定价格购进或售出一种资产的权利&lt;/strong&gt;。期权是一种&lt;u&gt;权利&lt;/u&gt;。持有人享有权利但不承担相应的义务。&lt;/p&gt;
+&lt;h2 id=&quot;1-1-一个简单的例子&quot;&gt;1.1 一个简单的例子&lt;/h2&gt;
+&lt;p&gt;Apple公司预计2022年9月10日发行最新款的iPhone14，而就在此时一些零售商推出了“6000元换购iPhone14”的换购券，每张售价50元。这个例子中，购买了该购物券，便是享有了一项权利，即&lt;strong&gt;到2022年9月10日当天，可以自行决定是否以6000元的价格换购iPhone14&lt;/strong&gt;，本质上享有的是一种自主权利，这便是期权的雏形。&lt;/p&gt;
+&lt;h2 id=&quot;1-2-几个基本要素&quot;&gt;1.2 几个基本要素&lt;/h2&gt;
+&lt;p&gt;还是以上面这个例子，以期权的视角来看看对应哪些基本要素：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;要素&lt;/th&gt;
+&lt;th&gt;对应内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;合约标的资产&lt;/td&gt;
+&lt;td&gt;iPhone14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;合约单位&lt;/td&gt;
+&lt;td&gt;1台&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;行权价&lt;/td&gt;
+&lt;td&gt;6000元&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;到期日&lt;/td&gt;
+&lt;td&gt;2022年9月10日&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;交割方式&lt;/td&gt;
+&lt;td&gt;实物交割&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;到目前为止，大部分应该容易被理解。除了&lt;strong&gt;行权价&lt;/strong&gt;这个概念，这里稍后再作解释。继续回到现实角度来看，什么情况下选择行使换购券权利更划算：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;iPhone14官方发行价&lt;/th&gt;
+&lt;th&gt;直接购买的成本&lt;/th&gt;
+&lt;th&gt;使用换购券的成本&lt;/th&gt;
+&lt;th&gt;使用换购券收益&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;6500&lt;/td&gt;
+&lt;td&gt;6500&lt;/td&gt;
+&lt;td&gt;6000 + 50 = 6050&lt;/td&gt;
+&lt;td&gt;6500 - 6050 = 550&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6100&lt;/td&gt;
+&lt;td&gt;6100&lt;/td&gt;
+&lt;td&gt;6000 + 50 = 6050&lt;/td&gt;
+&lt;td&gt;6100 - 6050 = 50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6050&lt;/td&gt;
+&lt;td&gt;6050&lt;/td&gt;
+&lt;td&gt;6000 + 50 = 6050&lt;/td&gt;
+&lt;td&gt;6050 - 6050 = 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6000&lt;/td&gt;
+&lt;td&gt;6000&lt;/td&gt;
+&lt;td&gt;6000 + 50 = 6050&lt;/td&gt;
+&lt;td&gt;6000 - 6050 = -50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5500&lt;/td&gt;
+&lt;td&gt;5500&lt;/td&gt;
+&lt;td&gt;6000 + 50 = 6050&lt;/td&gt;
+&lt;td&gt;5500 - 6050 = -550&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;不难分析，只有当&lt;u&gt;iPhone14的发行价 &amp;gt; 6050，使用换购券才划算&lt;/u&gt;。而随着发行价越高，使用换购券的收益率越高，换句话说就是越贵越划算。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="金融" scheme="https://smallfan.top/categories/%E9%87%91%E8%9E%8D/"/>
+    
+    <category term="证券知识" scheme="https://smallfan.top/categories/%E9%87%91%E8%9E%8D/%E8%AF%81%E5%88%B8%E7%9F%A5%E8%AF%86/"/>
+    
+    
+    <category term="期权" scheme="https://smallfan.top/tags/%E6%9C%9F%E6%9D%83/"/>
+    
+    <category term="股票" scheme="https://smallfan.top/tags/%E8%82%A1%E7%A5%A8/"/>
+    
+    <category term="金融" scheme="https://smallfan.top/tags/%E9%87%91%E8%9E%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解读Go框架 - http包（一）</title>
+    <link href="https://smallfan.top/2021/gohttp1/"/>
+    <id>https://smallfan.top/2021/gohttp1/</id>
+    <published>2021-07-24T17:42:55.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一、从一个简单的例子开始&lt;/h1&gt;
+&lt;p&gt;在《Go语言圣经》的第一章有这么一个例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight go&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&amp;quot;log&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(w http.ResponseWriter, r *http.Request)&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	fmt.Fprintf(w, &lt;span class=&quot;string&quot;&gt;&amp;quot;hello world!&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	http.HandleFunc(&lt;span class=&quot;string&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;, sayHello)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	err := http.ListenAndServe(&lt;span class=&quot;string&quot;&gt;&amp;quot;:9090&amp;quot;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; err != &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		log.Fatal(&lt;span class=&quot;string&quot;&gt;&amp;quot;ListenAndServe: &amp;quot;&lt;/span&gt;, err)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这是一个基于 HTTP 协议的 WEB 服务，通过监听 &lt;code&gt;9090端口&lt;/code&gt; 来响应客户端的请求；从上面可以看出，编写一个 WEB 服务器很简单，只要调用 http 包的两个函数就可以了；并且实际上这个 WEB 服务内部支持高并发，也就是在同一时间可以响应来源多个客户端的请求；Go 大道至简的设计理念，对于长期沉浸在 C/C++ 程序员是一种极大的解放。&lt;/p&gt;
+&lt;p&gt;那么，Go 是如何实现WEB高并发的？带着这个问题，开始一步步来分析。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="Golang" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/Golang/"/>
+    
+    
+    <category term="Golang" scheme="https://smallfan.top/tags/Golang/"/>
+    
+    <category term="HTTP" scheme="https://smallfan.top/tags/HTTP/"/>
+    
+    <category term="Web" scheme="https://smallfan.top/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于 LocalWebServer 实现 WKWebView 离线资源加载</title>
+    <link href="https://smallfan.top/2017/localwebserver/"/>
+    <id>https://smallfan.top/2017/localwebserver/</id>
+    <published>2017-08-23T16:38:35.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一、背景&lt;/h1&gt;
+&lt;p&gt;笔者在&lt;a href=&quot;https://smallfan.net/2017/wkwebview/&quot;&gt;《WKWebView》&lt;/a&gt;一文中提到过，&lt;strong&gt;WKWebView&lt;/strong&gt; 在独立于 app 进程之外的进程中执行网络请求，请求数据不经过主进程，因此，在 &lt;strong&gt;WKWebView&lt;/strong&gt; 上直接使用 NSURLProtocol 无法拦截请求。所以如果需要使用到拦截请求，有种可行地方案是使用苹果开源的 Webkit2 源码暴露的私有API（详见原文第3小节：NSURLProtocol问题）。&lt;br&gt;
+但使用私有API，必然带来以下几个问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;审核风险&lt;/li&gt;
+&lt;li&gt;拦截http/https时，post请求body丢失&lt;/li&gt;
+&lt;li&gt;如使用ajax hook方式，可能存在 &lt;strong&gt;post header字符长度限制&lt;/strong&gt; 、&lt;strong&gt;Put类型请求异常&lt;/strong&gt; 等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由此看来，在 iOS11 &lt;strong&gt;WKURLSchemeHandler&lt;/strong&gt; [&lt;a href=&quot;http://www.jianshu.com/p/8af24e9dc82e&quot;&gt;探究&lt;/a&gt;] 到来之前，私有API并不那么完美。&lt;br&gt;
+所幸通过寻找发现，iOS系统上具备搭建服务器能力，理论上对实现 &lt;strong&gt;WKWebView 离线资源加载&lt;/strong&gt; 存在可能性。&lt;/p&gt;
+&lt;h1&gt;二、分析&lt;/h1&gt;
+&lt;p&gt;基于iOS的local web server，目前大致有以下几种较为完善的框架：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/robbiehanson/CocoaHTTPServer&quot;&gt;CocoaHttpServer&lt;/a&gt; (支持iOS、macOS及多种网络场景)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/swisspol/GCDWebServer&quot;&gt;GCDWebServer&lt;/a&gt; （基于iOS，不支持 https 及 webSocket）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Building42/Telegraph&quot;&gt;Telegraph&lt;/a&gt; （Swift实现，功能较上面两类更完善）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为目前大部分APP已经支持ATS，且国内大部分项目代码仍采用OC实现，故本文将以 &lt;strong&gt;CocoaHttpSever&lt;/strong&gt; 为基础进行实验。&lt;br&gt;
+&lt;strong&gt;Telegraph&lt;/strong&gt; 是为补充 CocoaHttpSever 及 GCDWebServer 不足而诞生，对于纯Swift项目，推荐使用 &lt;strong&gt;Telegraph&lt;/strong&gt; 。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="iOS" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/iOS/"/>
+    
+    
+    <category term="Hybrid" scheme="https://smallfan.top/tags/Hybrid/"/>
+    
+    <category term="iOS" scheme="https://smallfan.top/tags/iOS/"/>
+    
+    <category term="WKWebView" scheme="https://smallfan.top/tags/WKWebView/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WKWebView</title>
+    <link href="https://smallfan.top/2017/wkwebview/"/>
+    <id>https://smallfan.top/2017/wkwebview/</id>
+    <published>2017-08-06T18:42:55.000Z</published>
+    <updated>2024-02-10T14:58:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1&gt;一、分析&lt;/h1&gt;
+&lt;p&gt;在iPhone 6s、iOS 10.3.2中，对 &lt;strong&gt;&lt;a href=&quot;http://www.qq.com&quot;&gt;http://www.qq.com&lt;/a&gt;&lt;/strong&gt; 进行10次请求，得到如下数据：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;次数&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;UIWebView 内存消耗&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;WKWebView 内存（APP）消耗&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;UIWebView 请求耗时&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;WKWebView 请求耗时&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;67.47 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.81 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;4.13 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.80 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;2&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;58.23 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.86 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.16 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.54 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;3&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;57.83 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.50 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.14 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.56 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;4&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;59.38 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.88 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.08 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.07 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;5&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;59.70 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.75 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.07 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.71 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;6&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;64.05 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.83 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.47 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.65 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;7&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;59.45 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.81 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.11 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.63 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;8&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;57.55 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.45 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.15 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.64 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;9&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;58.47 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.77 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.17s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.75 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;10&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;58.89 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.84 MB&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1.11 s&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.70 s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;UIWebView平均内存消耗：54.13 MB&lt;br&gt;
+WKWebView平均（APP）内存消耗：&lt;strong&gt;0.75 MB&lt;/strong&gt;&lt;br&gt;
+UIWebView平均请求耗时：1.46 s&lt;br&gt;
+WKWebView平均请求耗时：&lt;strong&gt;0.7 s&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;综上可得&lt;/strong&gt;：WKWebView在请求耗时上为UIWebView的50%左右，内存上更是完胜。但实际上 WKWebView是一个多进程组件，&lt;strong&gt;网络请求&lt;/strong&gt;以及&lt;strong&gt;UI渲染&lt;/strong&gt;在其它进程中执行。仔细观察会发现：加载时，App进程内存消耗虽非常小甚至反而大幅下降，但Other Process的内存占用会增加。所以：在UIWebView上当内存占用太大的时候，App Process会crash；而在WKWebView上当总体的内存占用比较大的时候，WebContent Process会crash，从而出现白屏现象。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="iOS" scheme="https://smallfan.top/categories/%E6%8A%80%E6%9C%AF/iOS/"/>
+    
+    
+    <category term="Hybrid" scheme="https://smallfan.top/tags/Hybrid/"/>
+    
+    <category term="iOS" scheme="https://smallfan.top/tags/iOS/"/>
+    
+    <category term="WKWebView" scheme="https://smallfan.top/tags/WKWebView/"/>
+    
+  </entry>
+  
+</feed>

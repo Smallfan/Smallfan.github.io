@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="[&quot;zh-CN&quot;,&quot;en&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Git 基本构成及常见问题 | 程序猿小风扇</title><meta name="author" content="Smallfan"><meta name="copyright" content="Smallfan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文适合人群：具备 Git 基本使用经验的软件开发工程师、测试工程师、运维工程师等 本文学习目的：理解 Git 中最基本原理部分，以求触类旁通，在遇到突发问题时具备自行分析能力 建议阅读时间：30分钟  一、基本构成 Git由 对象库（Object store） 和 索引（index） 构成。 1.1 对象库 主要包含4种类型原子对象 ：块（blob）、目录树（tree）、提交（commit）、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 基本构成及常见问题">
+<meta property="og:url" content="https://smallfan.top/2023/gitCommon/index.html">
+<meta property="og:site_name" content="程序猿小风扇">
+<meta property="og:description" content="本文适合人群：具备 Git 基本使用经验的软件开发工程师、测试工程师、运维工程师等 本文学习目的：理解 Git 中最基本原理部分，以求触类旁通，在遇到突发问题时具备自行分析能力 建议阅读时间：30分钟  一、基本构成 Git由 对象库（Object store） 和 索引（index） 构成。 1.1 对象库 主要包含4种类型原子对象 ：块（blob）、目录树（tree）、提交（commit）、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.smallfan.top/20230426144937.png">
+<meta property="article:published_time" content="2023-04-26T14:31:55.000Z">
+<meta property="article:modified_time" content="2024-02-10T14:58:12.000Z">
+<meta property="article:author" content="Smallfan">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="开发工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.smallfan.top/20230426144937.png"><link rel="shortcut icon" href="/images/favicon_32x32.ico"><link rel="canonical" href="https://smallfan.top/2023/gitCommon/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?518634415e24058209933a1b84252643";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-VEBCJX739Y"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-VEBCJX739Y');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Smallfan","link":"链接: ","source":"来源: 程序猿小风扇","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git 基本构成及常见问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-10 14:58:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="程序猿小风扇" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style><link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet" /></head><body><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://blogpic.smallfan.top/index/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-piggy-bank"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 财旺双全</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/wangwang/"><i class="fa-fw fas fa-paw"></i><span> 旺旺</span></a></li><li><a class="site-page child" href="/caicai/"><i class="fa-fw fas fa-cat"></i><span> 财财</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.smallfan.top/20230426144937.png')"><nav id="nav"><span id="blog-info"><a href="/" title="程序猿小风扇"><span class="site-name">程序猿小风扇</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-piggy-bank"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-heart"></i><span> 财旺双全</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/wangwang/"><i class="fa-fw fas fa-paw"></i><span> 旺旺</span></a></li><li><a class="site-page child" href="/caicai/"><i class="fa-fw fas fa-cat"></i><span> 财财</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git 基本构成及常见问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2023-04-26T14:31:55.000Z" title="发表于 2023-04-26 14:31:55">2023-04-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li>本文适合人群：具备 Git 基本使用经验的软件开发工程师、测试工程师、运维工程师等</li>
+<li>本文学习目的：理解 Git 中最基本原理部分，以求触类旁通，在遇到突发问题时具备自行分析能力</li>
+<li>建议阅读时间：30分钟</li>
+</ul>
+<h1>一、基本构成</h1>
+<p>Git由 对象库（Object store） 和 索引（index） 构成。</p>
+<h2 id="1-1-对象库">1.1 对象库</h2>
+<p>主要包含4种类型<strong>原子对象</strong> ：块（blob）、目录树（tree）、提交（commit）、标签（tag）。</p>
+<p>块: 文件的每一个版本表示为一个块, 保存文件数据, 但不包含任何关于这个文件的元数据, 连文件名都没有</p>
+<blockquote>
+<blockquote>
+<p>blob: ”binary large object” 二进制大对象</p>
+</blockquote>
+</blockquote>
+<p>目录树: 代表一层目录信息, 记录blob标识符/路径名/和目录中所有文件的一些元数据, 也可以递归引用其他目录树和子树对象, 本质上为树形数据结构存储</p>
+<p>提交: 保存版本库中每一次变化的元数据, 包括作者/提交者/提交日期和日志信息.<br>每个提交对象指向一个目录树对象, 这个目录树对象在一张完整的快照中捕获提交时版本库的状态</p>
+<p>标签: 分配一个任意的且人类刻度的名字给一个特定对象</p>
+<p>为有效地利用磁盘空间和网络带宽，Git把对象压缩并存储在打包文件(pack file)里, 这些文件也在对象库里。</p>
+<h2 id="1-2-索引">1.2 索引</h2>
+<p>索引是一个临时的、动态的二进制文件，它描述整个版本库的目录结构。更具体地说，索引捕获项目在某个时刻的整体结构的一个版本。项目的状态可以用一个提交和一棵目录树表示，它可以来自项目历史中的任意时刻，或者它可以是你正在开发的未来状态。</p>
+<p>Git的关键特色之一就是它允许你用有条理的、定义好的步骤来改变索引的内容。索引使得开发的推进与提交的变更之间能够分离开来。</p>
+<p>Git通过目录树（tree）的对象来跟踪文件的路径名。当使用git add命令时，Git会给添加的每个文件的内容创建一个对象，但它并不会马上为树创建一个对象。相反，只更新了索引。</p>
+<p>索引位于.git/index中，跟踪文件的路径名和相应的blob<br>每次执行git add / git rm /git mv 的时候, 会使用新的路径名和blob信息来更新索引</p>
+<p>查看当前索引中文件与blob关联的命令<br>git ls-files -s<br>捕获当前索引状态并保存到一个树对象的命令<br>git write-tree</p>
+<h2 id="1-3-可寻址内容名称">1.3 可寻址内容名称</h2>
+<p>对象库中的每一个对象都有一个唯一的名称，由对象的内容应用SHA1得到的散列值。</p>
+<blockquote>
+<blockquote>
+<p>SHA1的值是一个160位的数, 表示一个40位的十六进制数<br>在不同目录甚至不同机器中, 对相同内容始终产生同样的ID<br>Git中SHA1别称: 散列码、对象ID<br>SHA1是“安全散列加密”算法, 直到现在没有任何已知方法可以刻意碰撞。<br>对于160位数, 你有2^160或者大约10^48种可能, 一万亿人每秒产生一万亿个新的唯一blob对象, 持续一万亿年, 也只有10^43个blob对象</p>
+</blockquote>
+</blockquote>
+<h2 id="1-4-git追踪内容">1.4 Git追踪内容</h2>
+<p>关键概念1：Git追踪的是内容，而不是文件次相关的文件名或者目录名。</p>
+<ol>
+<li>
+<p>如果两个文件内容完全一样只保存一份blob形式的内容副本</p>
+</li>
+<li>
+<p>如果其中一个发生变化，会为它计算新的SHA1值并加到对象库中</p>
+</li>
+</ol>
+<p>关键概念2：Git内部数据库有效地存储每个文件的每个版本，而不是他们的差异。</p>
+<p>因为Git使用一个文件的全部内容的散列值作为文件名，所以它必须对每个文件的完整副本进行操作<br>Git不能将工作或者对象库条目建立在文件内容的一部分或者文件的两个版本之间差异上</p>
+<blockquote>
+<blockquote>
+<p>问题：存储每个文件每个版本的完整内容是否太低效?</p>
+</blockquote>
+</blockquote>
+<h2 id="1-5-打包文件-pack-file">1.5 打包文件(pack file)</h2>
+<p>定位内容相似全部文件, 为他们之一存储整个内容, 之后计算相似文件之间的差异并且只存储差异。<br>Git还维护打包文件表示中每个完整文件（包括完整内容的文件和通过差异重建出来的文件）的原始blob的SHA1值, 这给定位包内对象的索引机制提供了基础。</p>
+<p>使用散列值把blob/目录树从对象库里提取出来的命令:<br>git cat-file -p xxx(SHA1)<br>通过对象唯一前缀来查找对象的散列值:<br>Git rev-parse xxxx(短前缀)</p>
+<h1>二、演示图示</h1>
+<h2 id="2-1-创建仓库">2.1 创建仓库</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mkdir temp</span><br><span class="line"></span><br><span class="line">cd temp</span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-2-创建一个新文件">2.2 创建一个新文件</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">touch test.txt</span><br><span class="line"></span><br><span class="line">echo &quot;hello&quot; &gt; test.txt</span><br><span class="line"></span><br><span class="line">cat test.txt // 输出hello</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-3-将新文件添加到索引">2.3 将新文件添加到索引</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git add test.txt</span><br><span class="line"></span><br><span class="line">// 查看当前索引中文件与blob关联</span><br><span class="line"></span><br><span class="line">git ls-files -s // 输出 100644 ce013625030ba8dba906f756967f9e9ca394464a 0 test.txt</span><br><span class="line"></span><br><span class="line">// 查看此时git object目录</span><br><span class="line"></span><br><span class="line">find .git/objects</span><br><span class="line"></span><br><span class="line">/* 输出以下内容</span><br><span class="line"></span><br><span class="line">.git/objects</span><br><span class="line"></span><br><span class="line">.git/objects/pack</span><br><span class="line"></span><br><span class="line">.git/objects/info</span><br><span class="line"></span><br><span class="line">.git/objects/ce</span><br><span class="line"></span><br><span class="line">.git/objects/ce/013625030ba8dba906f756967f9e9ca394464a</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-4-查看blob对象内容">2.4 查看blob对象内容</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git cat-file -p ce013625030ba8dba906f756967f9e9ca394464a // 输出 hello</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-5-创建树对象">2.5 创建树对象</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git write-tree // 输出 920512d27e4df0c79ca4a929bc5d4254b3d05c4c</span><br><span class="line"></span><br><span class="line">// 查看此时git object目录</span><br><span class="line"></span><br><span class="line">find .git/objects</span><br><span class="line"></span><br><span class="line">/* 输出以下内容</span><br><span class="line"></span><br><span class="line">.git/objects</span><br><span class="line"></span><br><span class="line">.git/objects/92</span><br><span class="line"></span><br><span class="line">.git/objects/92/0512d27e4df0c79ca4a929bc5d4254b3d05c4c</span><br><span class="line"></span><br><span class="line">.git/objects/pack</span><br><span class="line"></span><br><span class="line">.git/objects/info</span><br><span class="line"></span><br><span class="line">.git/objects/ce</span><br><span class="line"></span><br><span class="line">.git/objects/ce/013625030ba8dba906f756967f9e9ca394464a</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">// 查看树对象内容</span><br><span class="line"></span><br><span class="line">git cat-file -p 920512d27e4df0c79ca4a929bc5d4254b3d05c4c // 输出 100644 blob ce013625030ba8dba906f756967f9e9ca394464a test.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-6-手动创建提交对象">2.6 手动创建提交对象</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo -n &quot;first commit&quot; | git commit-tree 920512d27e4df0c79ca4a929bc5d4254b3d05c4c</span><br><span class="line"></span><br><span class="line">// 输出 5d1b1de556bdd019f138052cc791de11027c37a2</span><br><span class="line"></span><br><span class="line">// 查看提交对象内容</span><br><span class="line"></span><br><span class="line">git cat-file -p 5d1b1de556bdd019f138052cc791de11027c37a2</span><br><span class="line"></span><br><span class="line">/* 输出以下内容</span><br><span class="line"></span><br><span class="line">tree 920512d27e4df0c79ca4a929bc5d4254b3d05c4c</span><br><span class="line"></span><br><span class="line">author fordxiao &lt;fordxiao@futunn.com&gt; 1620303459 +0800</span><br><span class="line"></span><br><span class="line">committer fordxiao &lt;fordxiao@futunn.com&gt; 1620303459 +0800</span><br><span class="line"></span><br><span class="line">first commit</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">// 查看此时git object目录</span><br><span class="line"></span><br><span class="line">/* 输出以下内容</span><br><span class="line"></span><br><span class="line">.git/objects</span><br><span class="line"></span><br><span class="line">.git/objects/92</span><br><span class="line"></span><br><span class="line">.git/objects/92/0512d27e4df0c79ca4a929bc5d4254b3d05c4c</span><br><span class="line"></span><br><span class="line">.git/objects/pack</span><br><span class="line"></span><br><span class="line">.git/objects/5d</span><br><span class="line"></span><br><span class="line">.git/objects/5d/1b1de556bdd019f138052cc791de11027c37a2</span><br><span class="line"></span><br><span class="line">.git/objects/info</span><br><span class="line"></span><br><span class="line">.git/objects/ce</span><br><span class="line"></span><br><span class="line">.git/objects/ce/013625030ba8dba906f756967f9e9ca394464a</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-7-将master分支head指向刚刚的commit">2.7 将master分支head指向刚刚的commit</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 没有log生成，显示的错误原因是HEAD没有指定有效的版本</span><br><span class="line"></span><br><span class="line">git log</span><br><span class="line"></span><br><span class="line">// 更新master分支的head的值，指向我们的commit对象</span><br><span class="line"></span><br><span class="line">git update-ref refs/heads/master 5d1b1de556bdd019f138052cc791de11027c37a2</span><br><span class="line"></span><br><span class="line">// 此时就有log了</span><br><span class="line"></span><br><span class="line">git log</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>综上整个过程，其实就是从 修改内容 -&gt; 执行git add -&gt; 执行 git commit 的底层分解步骤，对象结构如下图：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic.smallfan.top/202302272041394.png" alt></p>
+<h1>三、日常实践常见问题（持续更新）</h1>
+<h2 id="q1-如何回滚单个或多个连续的commit">Q1 如何回滚单个或多个连续的commit</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git revert &lt;old commit&gt;..&lt;new commit&gt;</span><br><span class="line"></span><br><span class="line">// 举个栗子</span><br><span class="line"></span><br><span class="line">git revert dfca3e328f</span><br><span class="line"></span><br><span class="line">git revert c93eb7f88..dfca3e328f</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="q2-feature分支合并入主版本分支后-想回滚应该怎么操作">Q2: feature分支合并入主版本分支后，想回滚应该怎么操作</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 假设feature分支名为A，主版本分支（合并分支）名为master</span><br><span class="line"></span><br><span class="line">// 首先保证当前处在主版本分支</span><br><span class="line"></span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">/* 执行回滚</span><br><span class="line"></span><br><span class="line">-m 之后可以是1或者2</span><br><span class="line"></span><br><span class="line">1代表保留合并分支内容，即master分支</span><br><span class="line"></span><br><span class="line">2代表保留被合并分支内容，即A分支</span><br><span class="line"></span><br><span class="line">commit_id为合并产生的merge commit</span><br><span class="line"></span><br><span class="line">下面操作将保留master分支的修改，而撤销A分支合并过来的修改</span><br><span class="line"></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">git revert -m 1 &lt;commit_id&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="q3-feature分支想借助reviewboard发codereview-应该注意哪些问题">Q3: feature分支想借助ReviewBoard发CodeReview，应该注意哪些问题</h2>
+<p>ReviewBoard脚本postreview.py中明确指出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">postreview.py -s -r &lt;review Id&gt; &#123;[&lt;earlier commit Id&gt;-]&lt;commit Id&gt;&#125;|&#123;&lt;commit Id&gt;,&lt;commit Id&gt;,...&#125;</span><br><span class="line"></span><br><span class="line">-s 表示把staged文件提交review</span><br><span class="line"></span><br><span class="line">-r 表示要提交到一个已经publish的review里边来更新该review</span><br><span class="line"></span><br><span class="line">&lt;commit Id&gt;可以是长Id也可以是短Id</span><br><span class="line"></span><br><span class="line">postreview.py &lt;commit Id&gt;:</span><br><span class="line"></span><br><span class="line">把&lt;commit Id&gt;对应的commit提交去review</span><br><span class="line"></span><br><span class="line">例如： postreview b400c4e</span><br><span class="line"></span><br><span class="line">postreview.py &lt;earlier commit Id&gt;-&lt;commit Id&gt;:</span><br><span class="line"></span><br><span class="line">把从&lt;earlier commit Id&gt;到&lt;commit Id&gt;所对应的范围内的(连续的)所有commit都提交去review</span><br><span class="line"></span><br><span class="line">例如：postreview.py b400c4e-91970bf</span><br><span class="line"></span><br><span class="line">postreview.py &lt;commit Id&gt;,&lt;commit Id&gt;,...</span><br><span class="line"></span><br><span class="line">把分立的多个commit提交到同一个review里边(这commitID的顺序需要注意下，最早的提交应该在最前)</span><br><span class="line"></span><br><span class="line">例如 postreview.py 83d452d,03d6025,6e69a6a</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>commit id必须是连续的，那么会发生常见无法正常发CR的情况：</p>
+<ul>
+<li>拉取feature分支后，提交若干commit，反合入其他分支内容，继续提交若干个commit，导致最终需要CR的commit不连续，无法正常使用ReviewBoard</li>
+</ul>
+<p>所以在需求开发过程中，我们应该尽量做到：</p>
+<ol>
+<li>
+<p>拉取feature分支后，尽量不再合入其他分支内容，保持提交树干净</p>
+</li>
+<li>
+<p>力求做到每个commit原子性，忌讳“一个commit中完成多项工作”或“一项工作分了多个commit进行”</p>
+</li>
+</ol>
+<p>针对特殊情况下如依赖因素导致的反合其他分支内容非抗力因素，建议在将feature分支合入master/version分支时，发起MergeRequest,这样在gitlab上依旧能生成对应的diff content</p>
+<h2 id="q4-开发过程中被紧急问题突发打断-如何快速切换现场">Q4: 开发过程中被紧急问题突发打断，如何快速切换现场</h2>
+<p>一种常见的做法就是准备多个group, 通过物理隔离的方法来做到多分支维护；然而有些时候可能在小规模变更产生之后，需要切换到另一条分支或者回到当前分支远程Head指针状态下进行其他操作，此时就需要暂存这些现场。<br>一般可能会执行git commit来暂存变更，但这样做有一个坏处，即“破坏了commit原子性和完整性”的原则，这个commit的内容是临时的，这对于后续的提交树维护是存在极大风险的。为此，更推荐采用git stash来进行缓存。</p>
+<p>git stash可以理解为一个栈，负责将当前索引区的变更产生一个临时pack file，缓存到栈中，随后可以随时取出，遵循FILO原则。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 将当前索引区内容存入栈中</span><br><span class="line"></span><br><span class="line">git stash push</span><br><span class="line"></span><br><span class="line">// 获取当前栈列表</span><br><span class="line"></span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line">// 将栈顶的内容还原到当前索引区</span><br><span class="line"></span><br><span class="line">git stash pop</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="q5-git-pull执行不顺畅时-如何快速清理现场">Q5: git pull执行不顺畅时，如何快速清理现场</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 清理索引区中所有的untracked files和目录（注意，此时未commit的新增文件将会被全部清理）</span><br><span class="line"></span><br><span class="line">git clean -fd</span><br><span class="line"></span><br><span class="line">// 放弃索引区中所有的tracked文件变更（注意，此时未commit的变更内容将会被全部清理）</span><br><span class="line"></span><br><span class="line">git checkout .</span><br><span class="line"></span><br><span class="line">// 重新拉取</span><br><span class="line"></span><br><span class="line">git pull</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="q6-如何放弃本地所有内容-直接对齐对应远程分支内容">Q6: 如何放弃本地所有内容，直接对齐对应远程分支内容</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 清理索引区中所有的untracked files和目录（注意，此时未commit的新增文件将会被全部清理）</span><br><span class="line"></span><br><span class="line">git clean -fd</span><br><span class="line"></span><br><span class="line">// 放弃索引区中所有的tracked文件变更（注意，此时未commit的变更内容将会被全部清理）</span><br><span class="line"></span><br><span class="line">git checkout .</span><br><span class="line"></span><br><span class="line">// 获取远程最新commit</span><br><span class="line"></span><br><span class="line">git fetch</span><br><span class="line"></span><br><span class="line">// 将本地分支head设置为远程head</span><br><span class="line"></span><br><span class="line">git reset --hard origin/分支名</span><br><span class="line"></span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://smallfan.top">Smallfan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://smallfan.top/2023/gitCommon/">https://smallfan.top/2023/gitCommon/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://smallfan.top" target="_blank">程序猿小风扇</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git/">Git</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></div><div class="post_share"><div class="social-share" data-image="https://pic.smallfan.top/20230426144937.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/wechatpay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/wechatpay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/images/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2023/dns/" title="如果根DNS服务器被炸了，万维网是不是将马上瘫痪？"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://blogpic.smallfan.top/dns/root_dns.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">如果根DNS服务器被炸了，万维网是不是将马上瘫痪？</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">一、基本构成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%AF%B9%E8%B1%A1%E5%BA%93"><span class="toc-text">1.1 对象库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E7%B4%A2%E5%BC%95"><span class="toc-text">1.2 索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E5%8F%AF%E5%AF%BB%E5%9D%80%E5%86%85%E5%AE%B9%E5%90%8D%E7%A7%B0"><span class="toc-text">1.3 可寻址内容名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-git%E8%BF%BD%E8%B8%AA%E5%86%85%E5%AE%B9"><span class="toc-text">1.4 Git追踪内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E6%89%93%E5%8C%85%E6%96%87%E4%BB%B6-pack-file"><span class="toc-text">1.5 打包文件(pack file)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">二、演示图示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="toc-text">2.1 创建仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="toc-text">2.2 创建一个新文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%B0%86%E6%96%B0%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%B4%A2%E5%BC%95"><span class="toc-text">2.3 将新文件添加到索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E6%9F%A5%E7%9C%8Bblob%E5%AF%B9%E8%B1%A1%E5%86%85%E5%AE%B9"><span class="toc-text">2.4 查看blob对象内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E5%88%9B%E5%BB%BA%E6%A0%91%E5%AF%B9%E8%B1%A1"><span class="toc-text">2.5 创建树对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E6%89%8B%E5%8A%A8%E5%88%9B%E5%BB%BA%E6%8F%90%E4%BA%A4%E5%AF%B9%E8%B1%A1"><span class="toc-text">2.6 手动创建提交对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-%E5%B0%86master%E5%88%86%E6%94%AFhead%E6%8C%87%E5%90%91%E5%88%9A%E5%88%9A%E7%9A%84commit"><span class="toc-text">2.7 将master分支head指向刚刚的commit</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">三、日常实践常见问题（持续更新）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#q1-%E5%A6%82%E4%BD%95%E5%9B%9E%E6%BB%9A%E5%8D%95%E4%B8%AA%E6%88%96%E5%A4%9A%E4%B8%AA%E8%BF%9E%E7%BB%AD%E7%9A%84commit"><span class="toc-text">Q1 如何回滚单个或多个连续的commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#q2-feature%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6%E5%85%A5%E4%B8%BB%E7%89%88%E6%9C%AC%E5%88%86%E6%94%AF%E5%90%8E-%E6%83%B3%E5%9B%9E%E6%BB%9A%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E6%93%8D%E4%BD%9C"><span class="toc-text">Q2: feature分支合并入主版本分支后，想回滚应该怎么操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#q3-feature%E5%88%86%E6%94%AF%E6%83%B3%E5%80%9F%E5%8A%A9reviewboard%E5%8F%91codereview-%E5%BA%94%E8%AF%A5%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-text">Q3: feature分支想借助ReviewBoard发CodeReview，应该注意哪些问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#q4-%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%A2%AB%E7%B4%A7%E6%80%A5%E9%97%AE%E9%A2%98%E7%AA%81%E5%8F%91%E6%89%93%E6%96%AD-%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E7%8E%B0%E5%9C%BA"><span class="toc-text">Q4: 开发过程中被紧急问题突发打断，如何快速切换现场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#q5-git-pull%E6%89%A7%E8%A1%8C%E4%B8%8D%E9%A1%BA%E7%95%85%E6%97%B6-%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E6%B8%85%E7%90%86%E7%8E%B0%E5%9C%BA"><span class="toc-text">Q5: git pull执行不顺畅时，如何快速清理现场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#q6-%E5%A6%82%E4%BD%95%E6%94%BE%E5%BC%83%E6%9C%AC%E5%9C%B0%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9-%E7%9B%B4%E6%8E%A5%E5%AF%B9%E9%BD%90%E5%AF%B9%E5%BA%94%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E5%86%85%E5%AE%B9"><span class="toc-text">Q6: 如何放弃本地所有内容，直接对齐对应远程分支内容</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Smallfan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'blog-comment-eight-alpha.vercel.app',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, null))
+  }
+
+  const walineCSSLoad = document.getElementById('waline-css')
+
+  if (typeof Waline === 'object') {
+    walineCSSLoad ? initWaline() : getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(initWaline)
+  }
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="C++,Swift,Objective-C,Ruby,Kotlin,Dart,Python,JavaScript,Java,Golang,C#,Rust,Smallfan最帅" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></body></html>
