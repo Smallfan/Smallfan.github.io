@@ -1,8 +1,8 @@
 ---
 title: 初探Flutter（二） 状态管理
 date: 2022-09-06 22:52:55
-categories: [工与匠]
-tags: [Flutter]
+categories: [工与匠, Flutter]
+tags: [Flutter基础]
 math: true
 mermaid: true
 ---

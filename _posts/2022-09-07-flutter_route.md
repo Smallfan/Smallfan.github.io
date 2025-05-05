@@ -1,8 +1,8 @@
 ---
 title: 初探Flutter（三） 路由管理
 date: 2022-09-07 22:00:11
-categories: [工与匠]
-tags: [Flutter]
+categories: [工与匠, Flutter]
+tags: [Flutter基础]
 math: true
 mermaid: true
 ---
