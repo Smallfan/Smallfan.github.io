@@ -110,9 +110,6 @@ defaults:
         -
           label: 主页
           url: /
-        -
-          label: 标签
-          url: /tabs/tags/
   -
     scope:
       path: categories
@@ -123,9 +120,6 @@ defaults:
         -
           label: 主页
           url: /
-        -
-          label: 分类
-          url: /tabs/categories/
   -
     scope:
       path: tabs
@@ -169,26 +163,6 @@ sitemap_exclude:  # Sitemap will exclude the following items.
     - /categories/
     - /tags/
     - /posts/
-    - /2011/
-    - /2012/
-    - /2013/
-    - /2014/
-    - /2015/
-    - /2016/
-    - /2017/
-    - /2018/
-    - /2019/
-    - /2020/
-    - /2021/
-    - /2022/
-    - /2023/
-    - /2024/
-    - /2025/
-    - /2026/
-    - /2027/
-    - /2028/
-    - /2029/
-    - /2030/
     - 404.html
     - feed.xml
     - sitemap.xml
