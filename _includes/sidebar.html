@@ -56,14 +56,6 @@
 </div><!-- #nav-wrapper -->
 
 <div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4">
-
-  {% if site.theme_mode == "dual" %}
-  <span id="mode-toggle-wrapper">
-    {% include mode-toggle.html %}
-  </span>
-  <span class="icon-border"></span>
-  {% endif %}
-
   {% for entry in site.data.contact %}
     {% capture url %}
       {%- if entry.type == 'github' -%}
